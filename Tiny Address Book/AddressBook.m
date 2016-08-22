@@ -26,4 +26,10 @@
     return [NSString stringWithFormat:@"%@", [self addresses]];
 }
 
+- (void)displayAddressBookEntrys {
+    for (NSString * key in self.addresses) {
+        NSLog(@"%@", [self.addresses objectForKey: key]);
+    }
+}
+
 @end

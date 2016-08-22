@@ -10,9 +10,10 @@
 
 @interface AddressBookEntry : NSObject
 
-@property (nonatomic, copy) NSString * name;
-@property (nonatomic, copy) NSString * emailAddress;
+@property (nonatomic, copy, readonly) NSString * name;
+@property (nonatomic, copy, readonly) NSString * emailAddress;
+@property (nonatomic, copy, readonly) NSString * buddy;
 
-- (instancetype)initWithName:(NSString *)name EmailAddress:(NSString *)emailAddress NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithName:(NSString *)name EmailAddress:(NSString *)emailAddress Buddy:(NSString *)buddy NS_DESIGNATED_INITIALIZER;
 
 @end

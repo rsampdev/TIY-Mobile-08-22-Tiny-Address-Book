@@ -17,17 +17,17 @@ int main(int argc, const char * argv[]) {
         
         NSString * name = nil;
         NSString * emailAddress = nil;
+        NSString * buddy = nil;
         
         name = getStringFromUser(100, @"What is your name?");
         emailAddress = getStringFromUser(100, @"What is your email address?");
+        buddy = getStringFromUser(100, @"What is your buddy's name?");
         
-        AddressBookEntry * newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress];
+        AddressBookEntry * newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
         
         [addressBook addAddressBookEntry:newEntry];
         
-        for (int i = 0; i < addressBook.addresses.count; i++) {
-            NSLog(@"%@", [addressBook.addresses objectForKey: newEntry.name]);
-        }
+        [addressBook displayAddressBookEntrys];
     }
     return 0;
 }

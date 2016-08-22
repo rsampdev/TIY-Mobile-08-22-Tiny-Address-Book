@@ -15,4 +15,6 @@
 
 - (void)addAddressBookEntry:(AddressBookEntry *)newAddressBookEntry;
 
+- (void)displayAddressBookEntrys;
+
 @end
