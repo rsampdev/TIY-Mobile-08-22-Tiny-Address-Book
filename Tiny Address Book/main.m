@@ -22,8 +22,8 @@ int main(int argc, const char * argv[]) {
         emailAddress = getStringFromUser(100, @"What is your email address?");
         
         AddressBookEntry * newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress];
-    
-        [addressBook.addresses setObject:newEntry forKey: newEntry.name];
+        
+        [addressBook addAddressBookEntry:newEntry];
         
         for (int i = 0; i < addressBook.addresses.count; i++) {
             NSLog(@"%@", [addressBook.addresses objectForKey: newEntry.name]);

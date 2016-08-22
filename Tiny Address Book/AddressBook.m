@@ -18,6 +18,10 @@
     return self;
 }
 
+- (void)addAddressBookEntry:(AddressBookEntry *)newAddressBookEntry {
+    [self.addresses setObject:newAddressBookEntry forKey:newAddressBookEntry.name];
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@", [self addresses]];
 }
