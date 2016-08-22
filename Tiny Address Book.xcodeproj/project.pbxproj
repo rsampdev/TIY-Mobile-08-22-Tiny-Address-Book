@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33C7D1511D6B920B00A62B1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C7D1501D6B920B00A62B1A /* main.m */; };
+		33C7D16C1D6B929C00A62B1A /* UserInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C7D1651D6B929C00A62B1A /* UserInput.m */; };
+		33C7D16D1D6B929C00A62B1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C7D1661D6B929C00A62B1A /* main.m */; };
+		33C7D16E1D6B929C00A62B1A /* AddressBookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C7D1681D6B929C00A62B1A /* AddressBookEntry.m */; };
+		33C7D16F1D6B929C00A62B1A /* AddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C7D1691D6B929C00A62B1A /* AddressBook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +27,13 @@
 
 /* Begin PBXFileReference section */
 		33C7D14D1D6B920B00A62B1A /* Tiny Address Book */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Tiny Address Book"; sourceTree = BUILT_PRODUCTS_DIR; };
-		33C7D1501D6B920B00A62B1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33C7D1651D6B929C00A62B1A /* UserInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInput.m; sourceTree = "<group>"; };
+		33C7D1661D6B929C00A62B1A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		33C7D1671D6B929C00A62B1A /* AddressBookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookEntry.h; sourceTree = "<group>"; };
+		33C7D1681D6B929C00A62B1A /* AddressBookEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookEntry.m; sourceTree = "<group>"; };
+		33C7D1691D6B929C00A62B1A /* AddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBook.m; sourceTree = "<group>"; };
+		33C7D16A1D6B929C00A62B1A /* UserInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInput.h; sourceTree = "<group>"; };
+		33C7D16B1D6B929C00A62B1A /* AddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBook.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +66,13 @@
 		33C7D14F1D6B920B00A62B1A /* Tiny Address Book */ = {
 			isa = PBXGroup;
 			children = (
-				33C7D1501D6B920B00A62B1A /* main.m */,
+				33C7D1651D6B929C00A62B1A /* UserInput.m */,
+				33C7D1661D6B929C00A62B1A /* main.m */,
+				33C7D1671D6B929C00A62B1A /* AddressBookEntry.h */,
+				33C7D1681D6B929C00A62B1A /* AddressBookEntry.m */,
+				33C7D1691D6B929C00A62B1A /* AddressBook.m */,
+				33C7D16A1D6B929C00A62B1A /* UserInput.h */,
+				33C7D16B1D6B929C00A62B1A /* AddressBook.h */,
 			);
 			path = "Tiny Address Book";
 			sourceTree = "<group>";
@@ -119,7 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33C7D1511D6B920B00A62B1A /* main.m in Sources */,
+				33C7D16D1D6B929C00A62B1A /* main.m in Sources */,
+				33C7D16F1D6B929C00A62B1A /* AddressBook.m in Sources */,
+				33C7D16E1D6B929C00A62B1A /* AddressBookEntry.m in Sources */,
+				33C7D16C1D6B929C00A62B1A /* UserInput.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

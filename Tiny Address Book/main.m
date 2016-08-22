@@ -7,11 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AddressBook.h"
+#import "UserInput.h"
+#import "AddressBookEntry.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        AddressBook * addressBook = [[AddressBook alloc] init];
+        
+        NSString * name = nil;
+        NSString * emailAddress = nil;
+        
+        name = getStringFromUser(100, @"What is your name?");
+        emailAddress = getStringFromUser(100, @"What is your email address?");
+        
+        AddressBookEntry * newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress];
+    
+        [addressBook.addresses setObject:newEntry forKey: newEntry.name];
+        
+        for (int i = 0; i < addressBook.addresses.count; i++) {
+            NSLog(@"%@", [addressBook.addresses objectForKey: newEntry.name]);
+        }
     }
     return 0;
 }
