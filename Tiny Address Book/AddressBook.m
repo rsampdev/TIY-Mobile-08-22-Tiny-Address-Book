@@ -27,8 +27,13 @@
 }
 
 - (void)displayAddressBookEntrys {
+    NSUInteger index = 0;
     for (NSString * key in self.addresses) {
         NSLog(@"%@", [self.addresses objectForKey: key]);
+        if (index != self.addresses.count - 1) {
+            NSLog(@"\n");
+        }
+        index++;
     }
 }
 

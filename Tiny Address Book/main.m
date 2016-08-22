@@ -18,14 +18,21 @@ int main(int argc, const char * argv[]) {
         NSString * name = nil;
         NSString * emailAddress = nil;
         NSString * buddy = nil;
+        AddressBookEntry * newEntry = nil;
         
-        name = getStringFromUser(100, @"What is your name?");
-        emailAddress = getStringFromUser(100, @"What is your email address?");
-        buddy = getStringFromUser(100, @"What is your buddy's name?");
+        NSInteger choice = 0;
         
-        AddressBookEntry * newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
-        
-        [addressBook addAddressBookEntry:newEntry];
+        while (choice == 0) {
+            name = getStringFromUser(100, @"What is your name?");
+            emailAddress = getStringFromUser(100, @"What is your email address?");
+            buddy = getStringFromUser(100, @"What is your buddy's name?");
+            
+            newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
+            
+            [addressBook addAddressBookEntry:newEntry];
+            
+            choice = getNumberFromUser(2, @"Enter 1 if you are done entering entries. Enter 0 if you want to add another entry.");
+        }
         
         [addressBook displayAddressBookEntrys];
     }
