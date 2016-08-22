@@ -27,10 +27,12 @@
 }
 
 - (void)displayAddressBookEntrys {
+    NSArray * sortedKeys = [[self.addresses allKeys] sortedArrayUsingSelector:@selector(compare:)];
     NSUInteger index = 0;
-    for (NSString * key in self.addresses) {
+    
+    for (NSString * key in sortedKeys) {
         NSLog(@"%@", [self.addresses objectForKey: key]);
-        if (index != self.addresses.count - 1) {
+        if (index != sortedKeys.count - 1) {
             NSLog(@"\n");
         }
         index++;

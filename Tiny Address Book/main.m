@@ -18,8 +18,9 @@ int main(int argc, const char * argv[]) {
         NSString * name = nil;
         NSString * emailAddress = nil;
         NSString * buddy = nil;
-        AddressBookEntry * newEntry = nil;
         
+        AddressBookEntry * newEntry = nil;
+        NSMutableArray * entries = [[NSMutableArray alloc] init];
         NSInteger choice = 0;
         
         while (choice == 0) {
@@ -29,12 +30,28 @@ int main(int argc, const char * argv[]) {
             
             newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
             
+            [entries addObject:newEntry];
             [addressBook addAddressBookEntry:newEntry];
             
             choice = getNumberFromUser(2, @"Enter 1 if you are done entering entries. Enter 0 if you want to add another entry.");
         }
         
-        [addressBook displayAddressBookEntrys];
+        choice = getNumberFromUser(2, @"Enter 1 if you want to print out all the entries. Enter 0 if you want to select the entries to be printed.");
+        
+        if (choice == 0) {
+            BOOL choosing = YES;
+            while (choosing) {
+                choice = getNumberFromUser(999999, @"Enter 'y' if you are done. Enter 'n' if you are still adding entries.");
+                if (choice == (int)'y') {
+                    break;
+                } else {
+                    choice = 0;
+                }
+            }
+        } else {
+            [addressBook displayAddressBookEntrys];
+        }
+        
     }
     return 0;
 }
