@@ -10,14 +10,14 @@
 
 @implementation UserInput
 
-NSString* getStringFromUser(int strLength, NSString *prompt) {
-    char *result = NULL;
-    char* str = malloc(sizeof(char) * strLength);
+NSString * getStringFromUser(NSInteger strLength, NSString * prompt) {
+    char * result = NULL;
+    char * str = malloc(sizeof(char) * strLength);
     
     while (result != str || ([@(str) length] <= 1 || [@(str) length] > strLength)) {
         NSLog(@"%@", prompt);
         fpurge(stdin);
-        result = fgets(str, strLength, stdin);
+        result = fgets(str, (int)strLength, stdin);
     }
     
     NSString *rtn = @(str);
@@ -26,7 +26,7 @@ NSString* getStringFromUser(int strLength, NSString *prompt) {
     return [rtn stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 }
 
-NSInteger getNumberFromUser(int maxValidChoice, NSString *prompt) {
+NSInteger getNumberFromUser(NSInteger maxValidChoice, NSString * prompt) {
     NSInteger choice = -1;
     int numberOfItemsScanned = 0;
     NSInteger minValidChoice = 0;

@@ -11,47 +11,66 @@
 #import "UserInput.h"
 #import "AddressBookEntry.h"
 
+void start(void);
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        AddressBook * addressBook = [[AddressBook alloc] init];
-        
-        NSString * name = nil;
-        NSString * emailAddress = nil;
-        NSString * buddy = nil;
-        
-        AddressBookEntry * newEntry = nil;
-        NSMutableArray * entries = [[NSMutableArray alloc] init];
-        NSInteger choice = 0;
-        
-        while (choice == 0) {
-            name = getStringFromUser(100, @"What is your name?");
-            emailAddress = getStringFromUser(100, @"What is your email address?");
-            buddy = getStringFromUser(100, @"What is your buddy's name?");
-            
-            newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
-            
-            [entries addObject:newEntry];
-            [addressBook addAddressBookEntry:newEntry];
-            
-            choice = getNumberFromUser(2, @"Enter 1 if you are done entering entries. Enter 0 if you want to add another entry.");
-        }
-        
-        choice = getNumberFromUser(2, @"Enter 1 if you want to print out all the entries. Enter 0 if you want to select the entries to be printed.");
-        
-        if (choice == 0) {
-            BOOL choosing = YES;
-            while (choosing) {
-                choice = getNumberFromUser(999999, @"Enter 'y' if you are done. Enter 'n' if you are still adding entries.");
-                if (choice == (int)'y') {
-                    break;
-                } else {
-                    choice = 0;
-                }
-            }
-        } else {
-            [addressBook displayAddressBookEntrys];
-        }
-        
+        start();
     }
     return 0;
+}
+
+void start(void) {
+    AddressBook * addressBook = [[AddressBook alloc] init];
+    
+    NSString * name = nil;
+    NSString * emailAddress = nil;
+    NSString * buddy = nil;
+    
+    AddressBookEntry * newEntry = nil;
+    NSMutableArray * entries = [[NSMutableArray alloc] init];
+    NSInteger choice = 0;
+    
+    while (choice == 0) {
+        name = getStringFromUser(100, @"What is your name?");
+        emailAddress = getStringFromUser(100, @"What is your email address?");
+        buddy = getStringFromUser(100, @"What is your buddy's name?");
+        
+        newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
+        
+        [entries addObject:newEntry];
+        [addressBook addAddressBookEntry:newEntry];
+        
+        choice = getNumberFromUser(2, @"Enter 1 if you are done entering entries. Enter 0 if you want to add another entry.");
+    }
+    
+    choice = getNumberFromUser(2, @"Enter 1 if you want to print out all the entries. Enter 0 if you want to select the entries to be printed.");
+    
+    if (choice == 0) {
+        NSArray * sortedKeys = [[addressBook.addresses allKeys] sortedArrayUsingSelector:@selector(compare:)];
+        NSMutableArray * entriesToPrint = [[NSMutableArray alloc] init];
+        BOOL choosing = YES;
+        
+        NSUInteger index = 0;
+        for (NSString * key in sortedKeys) {
+            AddressBookEntry * entry = [addressBook.addresses objectForKey: key];
+            NSLog(@"Enter %@ for %@", @(index), entry.name);
+            NSLog(@"\n");
+            index++;
+        }
+        
+        while (choosing) {
+            choice = getNumberFromUser(sortedKeys.count - 1, @"Enter the number of a entry you would like to print out.");
+            [entriesToPrint addObject: sortedKeys[choice]];
+            
+            NSString * yesOrNo = getStringFromUser(4, @"Enter 'yes' if you are done. Enter 'no' if you are still selecting entries.");
+            if ([yesOrNo  isEqual: @"yes"]) {
+                choosing = NO;
+            }
+        }
+        
+        [addressBook displayAddressBookEntrys:entriesToPrint];
+    } else {
+        [addressBook displayAddressBookEntrys:nil];
+    }
 }

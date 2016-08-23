@@ -15,6 +15,6 @@
 
 - (void)addAddressBookEntry:(AddressBookEntry *)newAddressBookEntry;
 
-- (void)displayAddressBookEntrys;
+- (void)displayAddressBookEntrys:(NSArray *)sortedEntriesToPrint;
 
 @end

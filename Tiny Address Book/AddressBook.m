@@ -26,10 +26,14 @@
     return [NSString stringWithFormat:@"%@", [self addresses]];
 }
 
-- (void)displayAddressBookEntrys {
-    NSArray * sortedKeys = [[self.addresses allKeys] sortedArrayUsingSelector:@selector(compare:)];
-    NSUInteger index = 0;
+- (void)displayAddressBookEntrys:(NSArray *)sortedEntriesToPrint {
+    NSArray * sortedKeys = sortedEntriesToPrint;
     
+    if (sortedEntriesToPrint == nil) {
+       sortedKeys = [[self.addresses allKeys] sortedArrayUsingSelector:@selector(compare:)];
+    }
+    
+    NSUInteger index = 0;
     for (NSString * key in sortedKeys) {
         NSLog(@"%@", [self.addresses objectForKey: key]);
         if (index != sortedKeys.count - 1) {
