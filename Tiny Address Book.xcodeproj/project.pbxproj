@@ -66,13 +66,13 @@
 		33C7D14F1D6B920B00A62B1A /* Tiny Address Book */ = {
 			isa = PBXGroup;
 			children = (
-				33C7D1651D6B929C00A62B1A /* UserInput.m */,
-				33C7D1661D6B929C00A62B1A /* main.m */,
+				33C7D16B1D6B929C00A62B1A /* AddressBook.h */,
+				33C7D1691D6B929C00A62B1A /* AddressBook.m */,
 				33C7D1671D6B929C00A62B1A /* AddressBookEntry.h */,
 				33C7D1681D6B929C00A62B1A /* AddressBookEntry.m */,
-				33C7D1691D6B929C00A62B1A /* AddressBook.m */,
+				33C7D1661D6B929C00A62B1A /* main.m */,
 				33C7D16A1D6B929C00A62B1A /* UserInput.h */,
-				33C7D16B1D6B929C00A62B1A /* AddressBook.h */,
+				33C7D1651D6B929C00A62B1A /* UserInput.m */,
 			);
 			path = "Tiny Address Book";
 			sourceTree = "<group>";
@@ -264,6 +264,7 @@
 				33C7D1561D6B920B00A62B1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

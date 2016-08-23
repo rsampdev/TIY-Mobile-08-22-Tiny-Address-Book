@@ -30,12 +30,45 @@
     NSArray * sortedKeys = sortedEntriesToPrint;
     
     if (sortedEntriesToPrint == nil) {
-       sortedKeys = [[self.addresses allKeys] sortedArrayUsingSelector:@selector(compare:)];
+        sortedKeys = [[self.addresses allKeys] sortedArrayUsingSelector:@selector(compare:)];
     }
     
     NSUInteger index = 0;
     for (NSString * key in sortedKeys) {
-        NSLog(@"%@", [self.addresses objectForKey: key]);
+        AddressBookEntry * temp = [self.addresses objectForKey: key];
+        
+        NSString * nameLine = [NSString stringWithFormat: @"| Name: %@", temp.name];
+        NSString * emailLine = [NSString stringWithFormat: @"| Email Address: %@", temp.emailAddress];
+        NSString * buddyLine = [NSString stringWithFormat: @"| Buddy's Name: %@", temp.buddy];
+        NSString * border = @"|";
+        
+        for (int i = 0; i < 100; i++) {
+            if (i < 100 - 1) {
+                if (i > nameLine.length - 2) {
+                    nameLine = [NSString stringWithFormat: @"%@%@", nameLine, @" "];
+                }
+                if (i > emailLine.length - 2) {
+                    emailLine = [NSString stringWithFormat: @"%@%@", emailLine, @" "];
+                }
+                if (i > buddyLine.length - 2) {
+                    buddyLine = [NSString stringWithFormat: @"%@%@", buddyLine, @" "];
+                }
+                
+                border = [NSString stringWithFormat: @"%@%@", border, @"-"];
+                continue;
+            }
+            nameLine = [NSString stringWithFormat: @"%@%@", nameLine, @"|"];
+            emailLine = [NSString stringWithFormat: @"%@%@", emailLine, @"|"];
+            buddyLine = [NSString stringWithFormat: @"%@%@", buddyLine, @"|"];
+            border = [NSString stringWithFormat: @"%@%@", border, @"|"];
+        }
+        
+        NSLog(@"%@", border);
+        NSLog(@"%@", nameLine);
+        NSLog(@"%@", emailLine);
+        NSLog(@"%@", buddyLine);
+        NSLog(@"%@", border);
+        
         if (index != sortedKeys.count - 1) {
             NSLog(@"\n");
         }

@@ -60,11 +60,11 @@ void start(void) {
         }
         
         while (choosing) {
-            choice = getNumberFromUser(sortedKeys.count - 1, @"Enter the number of a entry you would like to print out.");
+            choice = getNumberFromUser(sortedKeys.count, @"Enter the number of a entry you would like to print out.");
             [entriesToPrint addObject: sortedKeys[choice]];
             
             NSString * yesOrNo = getStringFromUser(4, @"Enter 'yes' if you are done. Enter 'no' if you are still selecting entries.");
-            if ([yesOrNo  isEqual: @"yes"]) {
+            if ([yesOrNo isEqual: @"yes"]) {
                 choosing = NO;
             }
         }
