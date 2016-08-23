@@ -7,6 +7,7 @@
 //
 
 #import "AddressBookEntry.h"
+#import "UserInput.h"
 
 @implementation AddressBookEntry
 
@@ -22,6 +23,14 @@
 
 - (instancetype)init {
     return [self initWithName:@"UNKNOWN" EmailAddress:@"UNKNOWN" Buddy:@"UNKNOWN"];
+}
+
++ (instancetype)createAddressBookEntry {
+    NSString * name = getStringFromUser(100, @"What is your name?");
+    NSString * emailAddress = getStringFromUser(100, @"What is your email address?");
+    NSString * buddy =getStringFromUser(100, @"What is your buddy's name?");
+    
+    return [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
 }
 
 - (NSString *)description {

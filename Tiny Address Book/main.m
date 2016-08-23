@@ -22,21 +22,12 @@ int main(int argc, const char * argv[]) {
 
 void start(void) {
     AddressBook * addressBook = [[AddressBook alloc] init];
-    
-    NSString * name = nil;
-    NSString * emailAddress = nil;
-    NSString * buddy = nil;
-    
     AddressBookEntry * newEntry = nil;
     NSMutableArray * entries = [[NSMutableArray alloc] init];
     NSInteger choice = 0;
     
     while (choice == 0) {
-        name = getStringFromUser(100, @"What is your name?");
-        emailAddress = getStringFromUser(100, @"What is your email address?");
-        buddy = getStringFromUser(100, @"What is your buddy's name?");
-        
-        newEntry = [[AddressBookEntry alloc] initWithName:name EmailAddress:emailAddress Buddy:buddy];
+        newEntry = [AddressBookEntry createAddressBookEntry];
         
         [entries addObject:newEntry];
         [addressBook addAddressBookEntry:newEntry];

@@ -16,4 +16,6 @@
 
 - (instancetype)initWithName:(NSString *)name EmailAddress:(NSString *)emailAddress Buddy:(NSString *)buddy NS_DESIGNATED_INITIALIZER;
 
++ (instancetype)createAddressBookEntry;
+
 @end

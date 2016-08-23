@@ -22,10 +22,6 @@
     [self.addresses setObject:newAddressBookEntry forKey:newAddressBookEntry.name];
 }
 
-- (NSString *)description {
-    return [NSString stringWithFormat:@"%@", [self addresses]];
-}
-
 - (void)displayAddressBookEntrys:(NSArray *)sortedEntriesToPrint {
     NSArray * sortedKeys = sortedEntriesToPrint;
     
@@ -74,6 +70,10 @@
         }
         index++;
     }
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@", [self addresses]];
 }
 
 @end
